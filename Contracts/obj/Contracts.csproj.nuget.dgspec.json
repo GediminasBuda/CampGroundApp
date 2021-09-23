@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj": {}
+    "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj",
-        "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj",
+        "projectName": "Contracts",
+        "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\Vartotojas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vartotojas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,24 +39,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.90, )"
-            },
-            "Microsoft.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[5.0.0, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.26, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

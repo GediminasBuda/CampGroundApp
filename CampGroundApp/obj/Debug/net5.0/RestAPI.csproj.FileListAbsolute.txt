@@ -1,0 +1,6 @@
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.csproj.AssemblyReference.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.AssemblyInfoInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.AssemblyInfo.cs
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.csproj.CoreCompileInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\CampGroundApp\obj\Debug\net5.0\RestAPI.MvcApplicationPartsAssemblyInfo.cache
