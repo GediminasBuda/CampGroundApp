@@ -26,7 +26,7 @@ namespace Persistence
                 .AddSingleton<ICommentRepository, CommentRepository>()
                 .AddSingleton<IUserRepository, UserRepository>()
                 .AddSingleton<ICampGroundRepository, CampGroundRepository>()
-                .AddSingleton<IImageRepository, ImageRepository>()
+                .AddSingleton<IImageRepository, ImageRepository>();
         }
 
         private static IServiceCollection AddSqlClient(this IServiceCollection services, IConfiguration configuration)

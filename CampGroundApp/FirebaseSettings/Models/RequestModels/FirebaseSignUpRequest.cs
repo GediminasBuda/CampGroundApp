@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RestAPI.FirebaseSettings.Models.RequestModels
 {
-    public class SignUpRequest
+    public class FirebaseSignUpRequest
     {
-        [JsonPropertyName("login")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
         [JsonPropertyName("password")]
         public string Password { get; set; }

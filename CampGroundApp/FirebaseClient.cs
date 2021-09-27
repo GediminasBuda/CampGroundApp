@@ -19,16 +19,12 @@ namespace RestAPI
         {
             _httpClient = httpClient;
         }
-        public Task<T> EditFirebaseUser()
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<SignInResponse> SignInAsync(SignUpRequest signIn)
+        public async Task<FirebaseSignInResponse> SignInAsync(FirebaseSignUpRequest model)
         {
             const string url = ":signInWithPassword?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
 
-            var postJson = JsonSerializer.Serialize(signIn);
+            var postJson = JsonSerializer.Serialize(model);
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri(_httpClient.BaseAddress, url),
@@ -37,14 +33,14 @@ namespace RestAPI
             };
 
             var response = await _httpClient.SendAsync(request);
-            return await response.Content.ReadFromJsonAsync<SignInResponse>();
+            return await response.Content.ReadFromJsonAsync<FirebaseSignInResponse>();
         }
 
-        public async Task<SignUpResponse> SignUpAsync(SignUpRequest signUp)
+        public async Task<FirebaseSignUpResponse> SignUpAsync(FirebaseSignUpRequest model)
         {
             const string url = ":signUp?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
 
-            var postJson = JsonSerializer.Serialize(signUp);
+            var postJson = JsonSerializer.Serialize(model);
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri(_httpClient.BaseAddress, url),
@@ -53,7 +49,7 @@ namespace RestAPI
             };
 
             var response = await _httpClient.SendAsync(request);
-            return await response.Content.ReadFromJsonAsync<SignUpResponse>();
+            return await response.Content.ReadFromJsonAsync<FirebaseSignUpResponse>();
             
         }
     }

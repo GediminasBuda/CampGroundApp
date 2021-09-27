@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace RestAPI
 {
-    interface IFirebaseClient
+    public interface IFirebaseClient
     {
-        Task<SignUpResponse> SignUpAsync(SignUpRequest signUp);
-        Task<SignInResponse> SignInAsync(SignUpRequest signIn);
-
-        Task<T> EditFirebaseUser();
-
-        
+        Task<FirebaseSignUpResponse> SignUpAsync(FirebaseSignUpRequest model);
+        Task<FirebaseSignInResponse> SignInAsync(FirebaseSignUpRequest model);
     }
 }

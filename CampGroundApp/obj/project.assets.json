@@ -579,6 +579,16 @@
           }
         }
       },
+      "Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Contracts.dll": {}
+        }
+      },
       "Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -1714,6 +1724,11 @@
         "version.txt"
       ]
     },
+    "Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Contracts/Contracts.csproj",
+      "msbuildProject": "../Contracts/Contracts.csproj"
+    },
     "Persistence/1.0.0": {
       "type": "project",
       "path": "../Persistence/Persistence.csproj",
@@ -1722,6 +1737,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Contracts >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.10",
       "Microsoft.Extensions.DependencyInjection >= 5.0.2",
       "Microsoft.Extensions.Http >= 5.0.0",
@@ -1756,6 +1772,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj": {
+              "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj"
+            },
             "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj"
             }
