@@ -12,7 +12,7 @@ namespace RestAPI.FirebaseSettings.Models.ResponseModels
         public string RefreshToken { get; set; }
         public string ExpiresIn { get; set; }
         public string LocalId { get; set; }
-        public bool registered { get; set; }
+        public bool Registered { get; set; }
 
     }
 }

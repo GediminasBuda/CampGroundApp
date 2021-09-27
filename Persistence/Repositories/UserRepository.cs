@@ -1,4 +1,5 @@
 ﻿using Persistence.Models.ReadModels;
+using Persistence.Models.WriteModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,17 @@ namespace Persistence.Repositories
             _sqlClient = sqlClient;
         }
 
-        public Task<UserReadModel> GetByIdAsync(string userId)
+        public Task<UserReadModel> GetByIdAsync(string localId)
         {
-            var sql = $"SELECT * FROM {TableName} WHERE UserId = @UserId";
+            var sql = $"SELECT * FROM {TableName} WHERE LocalId = @LocalId";
             return _sqlClient.QuerySingleOrDefaultAsync<UserReadModel>(sql, new
             {
-                UserId = userId
+                LocalId = localId
             });
 
         }
 
-        public Task<int> SaveAsync(UserReadModel model)
+        public Task<int> SaveAsync(UserWriteModel model)
         {
             var sql = $"INSERT INTO {TableName} (UserId, Email, LocalId) VALUES (@UserId, @Email, @LocalId)";
             return _sqlClient.ExecuteAsync(sql, model);

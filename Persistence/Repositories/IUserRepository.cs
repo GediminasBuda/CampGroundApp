@@ -1,4 +1,5 @@
 ﻿using Persistence.Models.ReadModels;
+using Persistence.Models.WriteModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Persistence.Repositories
 {
     public interface IUserRepository
     {
-        Task<UserReadModel> GetByIdAsync(string userId);
-        Task<int> SaveAsync(UserReadModel model);
+        Task<UserReadModel> GetByIdAsync(string localId);
+        Task<int> SaveAsync(UserWriteModel model);
     }
 }

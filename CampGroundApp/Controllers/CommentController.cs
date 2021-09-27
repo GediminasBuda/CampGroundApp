@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Contracts.Models.RequestModels;
+using Contracts.Models.ResponseModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Persistence.Models.WriteModels;
+using Persistence.Repositories;
 using RestAPI.FirebaseSettings.Models;
 using System;
 using System.Collections.Generic;
@@ -10,46 +14,139 @@ using System.Threading.Tasks;
 namespace RestAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[comments]")]
     public class CommentController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ICampGroundRepository _campGroundRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly ICommentRepository _commentRepository;
 
-        private readonly ILogger<CommentController> _logger;
-
-        public CommentController(ILogger<CommentController> logger)
+        public CommentController(ICampGroundRepository campGroundRepository, IUserRepository userRepository, ICommentRepository commentRepository)
         {
-            _logger = logger;
+            _campGroundRepository = campGroundRepository;
+            _userRepository = userRepository;
+            _commentRepository = commentRepository;
         }
 
-        [HttpGet]
+       /* [HttpGet]
         [Authorize]
-        public IEnumerable<Comment> Get()
+        public async Task<ActionResult<IEnumerable<CommentResponse>>> ReadAll()
         {
-            var userId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var user = await _userRepository.GetByIdAsync(localId);
+            var comments = await _commentRepository.GetAllAsync(user.UserId);
+            return new ActionResult<IEnumerable<CommentResponse>>(comments.Select(c => c.MapToCommentResponse()));
+        }*/
+        [HttpPost]
+        [Authorize]
+        public async Task<ActionResult<SaveCommentResponse>> AddComment([FromBody] SaveCommentRequest request)//request comes from UI index.html
+        {
+            var campGround = await _campGroundRepository.GetAsync(request.CampGroundId);// we know which campGround is being commented;
 
-            var userId2 = (Guid)HttpContext.Items["userId"];
-
-            // if (userId is not null)
-            // {
-            //     return NotFound("");
-            // }
-            //
-            // var id = userId.Value;
-            //
-            // var userModel = _usersRepository.Get(id);
-
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Comment
+            if (campGround is null)
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-                .ToArray();
+                return NotFound($"Campground with id: {request.CampGroundId} does not exist");
+            }
+
+            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//Very important!info comes from firebase.com. via API "https://localhost:5001;http://localhost:5000" connction; So we know which user is connected;
+
+            var user = await _userRepository.GetByIdAsync(localId);// we call user from our MySql Database;
+
+            var comment = new CommentWriteModel
+            {
+                Id = Guid.NewGuid(),
+                CampGroundId = request.CampGroundId,
+                Rating = request.Rating,
+                Text = request.Text,
+                UserId = user.UserId,
+                DateCreated = DateTime.Now
+            };
+
+            await _commentRepository.SaveOrUpdateAsync(comment);// we save comment into MySql Database;
+
+            return new SaveCommentResponse // we return response to index.html
+            {
+                Id = comment.Id,
+                CampGroundId = comment.CampGroundId,
+                Rating = comment.Rating,
+                Text = comment.Text,
+                UserId = comment.UserId,
+                DateCreated = comment.DateCreated
+            };
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("{id}")]
+        public async Task<ActionResult<UpdateCommentResponse>> UpdateComment(Guid id, [FromBody] UpdateCommentRequest request)
+        {
+            if (request is null)
+            {
+                return BadRequest();
+            }
+
+            var ifExistsComment = await _commentRepository.GetAsync(id);
+
+            if (ifExistsComment is null)
+            {
+                return NotFound($"Comment with id: {id} does not exist");
+            }
+
+            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+
+            var user = await _userRepository.GetByIdAsync(localId);
+
+            var commentToUpdate = await _commentRepository.GetAsync(id, user.UserId);
+
+            if (commentToUpdate is null)
+            {
+                return BadRequest($"The user with e-mail: {user.Email} does not have permission to edit information of this comment.");
+            }
+            var comment = new CommentWriteModel
+            {
+                Id = id,
+                CampGroundId = commentToUpdate.CampGroundId,
+                Rating = request.Rating,
+                Text = request.Text,
+                UserId = commentToUpdate.UserId,
+                DateCreated = commentToUpdate.DateCreated
+            };
+
+            await _commentRepository.SaveOrUpdateAsync(comment);
+
+            return new UpdateCommentResponse
+            {
+                Rating = comment.Rating,
+                Text = comment.Text
+            };
+        }
+
+        [HttpDelete]
+        [Authorize]
+        [Route("{id}")]
+        public async Task<ActionResult> DeleteComment(Guid id)
+        {
+            var ifExistsComment = await _commentRepository.GetAsync(id);
+
+            if (ifExistsComment is null)
+            {
+                return NotFound($"Comment with id: {id} does not exist");
+            }
+
+            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+
+            var user = await _userRepository.GetByIdAsync(localId);
+
+            var commentToDelete = await _commentRepository.GetAsync(id, user.UserId);
+
+            if (commentToDelete is null)
+            {
+                return BadRequest($"The user with e-mail: {user.Email} does not have permission to delete this comment");
+            }
+
+            await _commentRepository.DeleteAsync(id);
+
+            return NoContent();
         }
     }
 }

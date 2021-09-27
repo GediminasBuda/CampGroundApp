@@ -1,4 +1,5 @@
 ﻿using Persistence.Models.ReadModels;
+using Persistence.Models.WriteModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,22 @@ namespace Persistence.Repositories
                 UserId = userId
             });
         }
-
+        public Task<IEnumerable<CommentReadModel>> GetByCampGroundIdAsync(Guid campGroundId)
+        {
+            var sql = $"SELECT * FROM {TableName} WHERE CampGroundId = @CampGroundId";
+            return _sqlClient.QueryAsync<CommentReadModel>(sql, new
+            {
+                CampGroundId = campGroundId
+            });
+        }
+        public Task<CommentReadModel> GetAsync(Guid id)
+        {
+            var sql = $"SELECT FROM {TableName} WHERE Id = @Id";
+            return _sqlClient.QuerySingleOrDefaultAsync<CommentReadModel>(sql, new
+            {
+                Id = id
+            });
+        }
         public Task<CommentReadModel> GetAsync(Guid id, Guid userId)
         {
             var sql = $"SELECT FROM {TableName} WHERE Id = @Id AND UserId = @UserId";
@@ -35,7 +51,7 @@ namespace Persistence.Repositories
             });
         }
 
-        public Task<int> SaveOrUpdateAsync(CommentReadModel model)
+        public Task<int> SaveOrUpdateAsync(CommentWriteModel model)
         {
             var sql = @$"INSERT INTO {TableName} (Id, CampGroundId, Rating, Text, UserId, DateCreated) 
                         VALUES (@Id, @CampGroundId, @Rating, @Text, @UserId, @DateCreated)
@@ -59,5 +75,15 @@ namespace Persistence.Repositories
                 Id = id
             });
         }
+
+        public Task<int> DeleteByCampGroundIdAsync(Guid campGroundId)
+        {
+            var sql = $"DELETE FROM {TableName} WHERE CampGroundId = @CampGroundId";
+            return _sqlClient.ExecuteAsync(sql, new
+            {
+                CampGroundId = campGroundId
+            });
+        }
+
     }
 }

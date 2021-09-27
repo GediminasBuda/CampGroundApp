@@ -3,3 +3,10 @@ C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\bin\Debug\net5.0\Persistence.deps.json
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\bin\Debug\net5.0\Persistence.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\bin\Debug\net5.0\Persistence.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\Persistence.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Persistence\obj\Debug\net5.0\Persistence.pdb

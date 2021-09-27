@@ -1,4 +1,5 @@
 ﻿using Persistence.Models.ReadModels;
+using Persistence.Models.WriteModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    class ImageRepository : IImageRepository
+    public class ImageRepository : IImageRepository
     {
         private readonly ISqlClient _sqlClient;
         private const string TableName = "images";
@@ -15,21 +16,21 @@ namespace Persistence.Repositories
         {
             _sqlClient = sqlClient;
         }
-        public Task<IEnumerable<ImageReadModel>> GetAllAsync(Guid campGroundId)
+        public Task<IEnumerable<ImageReadModel>> GetByCampGroundIdAsync(Guid campGroundId)
         {
-            var sql = $"SELECT * FROM {TableName} WHERE UserId = @UserId";
+            var sql = $"SELECT * FROM {TableName} WHERE CampGroundId = @CampGroundId";
             return _sqlClient.QueryAsync<ImageReadModel>(sql, new
             {
                 CampGroundId = campGroundId
             });
         }
-
-       /* public Task<ImageReadModel> GetAsync(Guid id, Guid userId)
+        public Task<ImageReadModel> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }*/
+            var sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
 
-        public Task<int> SaveAsync(ImageReadModel model)
+            return _sqlClient.QuerySingleOrDefaultAsync<ImageReadModel>(sql, new { Id = id });
+        }
+        public Task<int> SaveAsync(ImageWriteModel model)
         {
             var sql = @$"INSERT INTO {TableName} (Id, CampGroundId, Url) 
                         VALUES (@Id, @CampGroundId, @Url)";
@@ -39,12 +40,22 @@ namespace Persistence.Repositories
                 model.Id,
                 model.CampGroundId,
                 model.Url
-               
             });
         }
         public Task<int> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var sql = $"DELETE FROM {TableName} WHERE Id = @Id";
+
+            return _sqlClient.ExecuteAsync(sql, new { Id = id });
         }
+
+        public Task<int> DeleteByCampGroundIdAsync(Guid campGroundId)
+        {
+            var sql = $"DELETE FROM {TableName} WHERE CampgroundId = @CampgroundId";
+
+            return _sqlClient.ExecuteAsync(sql, new { CampGroundId = campGroundId });
+        }
+
+        
     }
 }
