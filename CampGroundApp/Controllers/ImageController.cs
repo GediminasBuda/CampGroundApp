@@ -37,9 +37,9 @@ namespace RestApi.Controllers
                 return NotFound($"CampGround with id: {request.CampGroundId} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//user session code routine;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//user session code routine;
 
-            var user = await _userRepository.GetByIdAsync(localId);//user session code routine;
+            var user = await _userRepository.GetByIdAsync(firebaseId);//user session code routine;
 
             var campGroundToAddImage = await _campGroundRepository.GetAsync(request.CampGroundId, user.UserId);// checks if CampGround with the given UserId exists;
 
@@ -74,12 +74,12 @@ namespace RestApi.Controllers
 
             if (ifExistsImage is null)
             {
-                return NotFound($"Comment with id: {id} does not exist");
+                return NotFound($"Image with id: {id} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var campground = await _campGroundRepository.GetAsync(ifExistsImage.CampGroundId, user.UserId);
 

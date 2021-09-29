@@ -19,19 +19,19 @@ namespace Persistence.Repositories
             _sqlClient = sqlClient;
         }
 
-        public Task<UserReadModel> GetByIdAsync(string localId)
+        public Task<UserReadModel> GetByIdAsync(string firebaseId)
         {
-            var sql = $"SELECT * FROM {TableName} WHERE LocalId = @LocalId";
+            var sql = $"SELECT * FROM {TableName} WHERE FirebaseId = @FirebaseId";
             return _sqlClient.QuerySingleOrDefaultAsync<UserReadModel>(sql, new
             {
-                LocalId = localId
+                FirebaseId = firebaseId
             });
 
         }
 
         public Task<int> SaveAsync(UserWriteModel model)
         {
-            var sql = $"INSERT INTO {TableName} (UserId, Email, LocalId) VALUES (@UserId, @Email, @LocalId)";
+            var sql = $"INSERT INTO {TableName} (UserId, Email, FirebaseId) VALUES (@UserId, @Email, @FirebaseId)";
             return _sqlClient.ExecuteAsync(sql, model);
         }
     }

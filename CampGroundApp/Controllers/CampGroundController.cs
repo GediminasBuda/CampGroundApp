@@ -93,9 +93,9 @@ namespace RestAPI.Controllers
         [Authorize]
         public async Task<ActionResult<SaveCampGroundResponse>> AddCampGround([FromBody] SaveCampGroundRequest request)
         {
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var campGround = new CampGroundWriteModel
             {
@@ -137,9 +137,9 @@ namespace RestAPI.Controllers
                 return NotFound($"CampGround with id: {id} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var campGroundToUpdate = await _campGroundRepository.GetAsync(id, user.UserId);
 
@@ -180,9 +180,9 @@ namespace RestAPI.Controllers
                 return NotFound($"Campground with id: {id} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var campgroundToDelete = await _campGroundRepository.GetAsync(id, user.UserId);
 

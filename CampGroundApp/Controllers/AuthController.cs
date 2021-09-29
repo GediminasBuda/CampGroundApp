@@ -38,7 +38,7 @@ namespace RestAPI.Controllers
                 {
                     UserId = Guid.NewGuid(),
                     Email = user.Email,
-                    LocalId = user.LocalId
+                    FirebaseId = user.FirebaseId
 
                 };
                 await _userRepository.SaveAsync(userSql);

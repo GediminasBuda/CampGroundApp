@@ -14,7 +14,7 @@ namespace RestAPI.FirebaseSettings.Models.RequestModels
         public string Email { get; set; }
         [JsonPropertyName("password")]
         public string Password { get; set; }
-        [JsonPropertyName("returnsecuretoken")]
-        public bool ReturnSecureToken { get; set; }
+        [JsonPropertyName("returnSecureToken")]
+        public bool ReturnSecureToken { get; } = true;
     }
 }

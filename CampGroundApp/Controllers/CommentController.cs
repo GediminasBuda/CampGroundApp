@@ -32,8 +32,8 @@ namespace RestAPI.Controllers
         [Authorize]
         public async Task<ActionResult<IEnumerable<CommentResponse>>> ReadAll()
         {
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
-            var user = await _userRepository.GetByIdAsync(localId);
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var user = await _userRepository.GetByIdAsync(firebaseId);
             var comments = await _commentRepository.GetAllAsync(user.UserId);
             return new ActionResult<IEnumerable<CommentResponse>>(comments.Select(c => c.MapToCommentResponse()));
         }
@@ -48,9 +48,9 @@ namespace RestAPI.Controllers
                 return NotFound($"Campground with id: {request.CampGroundId} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//Very important!info comes from firebase.com. via API "https://localhost:5001;http://localhost:5000" connction; So we know which user is connected;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//Very important!info comes from firebase.com. via API "https://localhost:5001;http://localhost:5000" connction; So we know which user is connected;
 
-            var user = await _userRepository.GetByIdAsync(localId);// we call user from our MySql Database;
+            var user = await _userRepository.GetByIdAsync(firebaseId);// we call user from our MySql Database;
 
             var comment = new CommentWriteModel
             {
@@ -92,9 +92,9 @@ namespace RestAPI.Controllers
                 return NotFound($"Comment with id: {id} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var commentToUpdate = await _commentRepository.GetAsync(id, user.UserId);
 
@@ -133,9 +133,9 @@ namespace RestAPI.Controllers
                 return NotFound($"Comment with id: {id} does not exist");
             }
 
-            var localId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 
-            var user = await _userRepository.GetByIdAsync(localId);
+            var user = await _userRepository.GetByIdAsync(firebaseId);
 
             var commentToDelete = await _commentRepository.GetAsync(id, user.UserId);
 

@@ -30,17 +30,9 @@ namespace RestAPI
 
         public async Task<FirebaseSignInResponse> SignInAsync(FirebaseSignUpRequest model)
         {
-            var url = $"{_baseAddress}/accounts:signInWithPassword?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:signInWithPassword?key={_firebaseOptions.ApiKey}";
 
-            /* var postJson = JsonSerializer.Serialize(model);
-             var request = new HttpRequestMessage
-             {
-                 RequestUri = new Uri(_httpClient.BaseAddress, url),
-                 Method = HttpMethod.Post,
-                 Content = new StringContent(postJson, Encoding.UTF8, "application/json")
-             };
-
-             var response = await _httpClient.SendAsync(request);*/
+           
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
             if (!response.IsSuccessStatusCode)
@@ -54,7 +46,7 @@ namespace RestAPI
 
         public async Task<FirebaseSignUpResponse> SignUpAsync(FirebaseSignUpRequest model)
         {
-            var url = $"{_baseAddress}/accounts:signUp?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:signUp?key={_firebaseOptions.ApiKey}";
 
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
@@ -68,7 +60,7 @@ namespace RestAPI
         }
         public async Task<PasswordResetResponse> PasswordResetAsync(PasswordResetRequest model)
         {
-            var url = $"{_baseAddress}/accounts:sendOobCode?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:sendOobCode?key={_firebaseOptions.ApiKey}";
 
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
@@ -83,7 +75,7 @@ namespace RestAPI
         }
         public async Task<VerifyEmailResponse> VerifyEmailAsync(VerifyEmailRequest model)
         {
-            var url = $"{_baseAddress}/accounts:sendOobCode?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:sendOobCode?key={_firebaseOptions.ApiKey}";
 
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
@@ -98,7 +90,7 @@ namespace RestAPI
 
         public async Task<ChangeEmailResponse> ChangeEmailAsync(ChangeEmailRequest model)
         {
-            var url = $"{_baseAddress}/accounts:update?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:update?key={_firebaseOptions.ApiKey}";
 
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
@@ -113,7 +105,7 @@ namespace RestAPI
         }
         public async Task<ChangePasswordResponse> ChangePasswordAsync(ChangePasswordRequest model)
         {
-            var url = $"{_baseAddress}/accounts:update?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
+            var url = $"{_baseAddress}/accounts:update?key={_firebaseOptions.ApiKey}";
 
             var response = await _httpClient.PostAsJsonAsync(url, model);
 
@@ -127,11 +119,11 @@ namespace RestAPI
 
         }
 
-        public Task<int> DeleteAsync(DeleteAccountRequest model)
+       /* public Task<int> DeleteAsync(DeleteAccountRequest model)
         {
             var url = $"{_baseAddress}/accounts:delete?key=AIzaSyCpSun5GRL9nSbERlYcnC0-LcnTWdWUFIk";
 
             return _httpClient.PostAsJsonAsync(url, model);
-        }
+        }*/
     }
 }

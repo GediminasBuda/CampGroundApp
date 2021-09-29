@@ -19,6 +19,6 @@ namespace RestAPI
 
         Task<ChangePasswordResponse> ChangePasswordAsync(ChangePasswordRequest model);
 
-        Task<int> DeleteAsync(DeleteAccountRequest model);
+        /*Task<int> DeleteAsync(DeleteAccountRequest model);*/
     }
 }
