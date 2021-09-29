@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace RestAPI.Controllers
 {
     [ApiController]
-    [Route("[comments]")]
+    [Route("comments")]
     public class CommentController : ControllerBase
     {
         private readonly ICampGroundRepository _campGroundRepository;
@@ -28,7 +28,7 @@ namespace RestAPI.Controllers
             _commentRepository = commentRepository;
         }
 
-       /* [HttpGet]
+        [HttpGet]
         [Authorize]
         public async Task<ActionResult<IEnumerable<CommentResponse>>> ReadAll()
         {
@@ -36,7 +36,7 @@ namespace RestAPI.Controllers
             var user = await _userRepository.GetByIdAsync(localId);
             var comments = await _commentRepository.GetAllAsync(user.UserId);
             return new ActionResult<IEnumerable<CommentResponse>>(comments.Select(c => c.MapToCommentResponse()));
-        }*/
+        }
         [HttpPost]
         [Authorize]
         public async Task<ActionResult<SaveCommentResponse>> AddComment([FromBody] SaveCommentRequest request)//request comes from UI index.html

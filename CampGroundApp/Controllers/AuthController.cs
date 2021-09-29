@@ -70,5 +70,53 @@ namespace RestAPI.Controllers
                 return BadRequest(exception.Message);
             }
         }
+        [HttpPost]
+        [Route("resetPassword")]
+        public async Task<ActionResult<PasswordResetResponse>> ResetPassword([FromBody] PasswordResetRequest request)
+        {
+            try
+            {
+                return await _firebaseClient.PasswordResetAsync(request);
+            }
+            catch (BadHttpRequestException exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+        [HttpPost]
+        [Route("changeEmail")]
+        public async Task<ActionResult<ChangeEmailResponse>> ChangeEmail([FromBody] ChangeEmailRequest request)
+        {
+            try
+            {
+                var userInfo = await _firebaseClient.ChangeEmailAsync(request);
+
+                var verificationEmail = new VerifyEmailRequest
+                {
+                    IdToken = userInfo.IdToken
+                };
+
+                await _firebaseClient.VerifyEmailAsync(verificationEmail);
+
+                return userInfo;
+            }
+            catch (BadHttpRequestException exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+        [HttpPost]
+        [Route("changePassword")]
+        public async Task<ActionResult<ChangePasswordResponse>> ChangePassword([FromBody] ChangePasswordRequest request)
+        {
+            try
+            {
+                return await _firebaseClient.ChangePasswordAsync(request);
+            }
+            catch (BadHttpRequestException exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
     }
 }

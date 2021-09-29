@@ -12,7 +12,7 @@ namespace RestAPI
         {
             services.AddHttpClient<IFirebaseClient, FirebaseClient>(httpClient =>
             {
-                httpClient.BaseAddress = new Uri("https://identitytoolkit.googleapis.com/v1/accounts");
+                httpClient.BaseAddress = new Uri("https://identitytoolkit.googleapis.com/v1");
 
             });
             return services;
