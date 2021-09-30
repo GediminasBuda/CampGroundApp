@@ -34,11 +34,12 @@
       "RestAPI/1.0.0": {
         "dependencies": {
           "Contracts": "1.0.0",
+          "Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.10",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.Extensions.Http": "5.0.0",
           "Persistence": "1.0.0",
-          "Swashbuckle.AspNetCore": "5.6.3",
+          "Swashbuckle.AspNetCore": "6.2.2",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -69,12 +70,12 @@
           "Microsoft.AspNetCore.Hosting": "5.0.0.0",
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Html.Abstractions": "5.0.0.0",
-          "Microsoft.AspNetCore.Http.Abstractions": "5.0.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Http.Connections.Common": "5.0.0.0",
           "Microsoft.AspNetCore.Http.Connections": "5.0.0.0",
-          "Microsoft.AspNetCore.Http": "5.0.0.0",
+          "Microsoft.AspNetCore.Http.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Http.Extensions": "5.0.0.0",
-          "Microsoft.AspNetCore.Http.Features": "5.0.0.0",
+          "Microsoft.AspNetCore.Http.Features.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.HttpOverrides": "5.0.0.0",
           "Microsoft.AspNetCore.HttpsPolicy": "5.0.0.0",
           "Microsoft.AspNetCore.Identity": "5.0.0.0",
@@ -115,7 +116,7 @@
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "5.0.0.0",
           "Microsoft.AspNetCore.StaticFiles": "5.0.0.0",
           "Microsoft.AspNetCore.WebSockets": "5.0.0.0",
-          "Microsoft.AspNetCore.WebUtilities": "5.0.0.0",
+          "Microsoft.AspNetCore.WebUtilities.Reference": "5.0.0.0",
           "Microsoft.CSharp.Reference": "5.0.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "5.0.0.0",
           "Microsoft.Extensions.Caching.Memory": "5.0.0.0",
@@ -153,14 +154,14 @@
           "Microsoft.Extensions.Logging.EventLog": "5.0.0.0",
           "Microsoft.Extensions.Logging.EventSource": "5.0.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "5.0.0.0",
-          "Microsoft.Extensions.ObjectPool": "5.0.0.0",
+          "Microsoft.Extensions.ObjectPool.Reference": "5.0.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "5.0.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "5.0.0.0",
           "Microsoft.Extensions.Options.Reference": "5.0.0.0",
           "Microsoft.Extensions.Primitives.Reference": "5.0.0.0",
           "Microsoft.Extensions.WebEncoders": "5.0.0.0",
           "Microsoft.JSInterop": "5.0.0.0",
-          "Microsoft.Net.Http.Headers": "5.0.0.0",
+          "Microsoft.Net.Http.Headers.Reference": "5.0.0.0",
           "Microsoft.VisualBasic.Core": "10.0.6.0",
           "Microsoft.VisualBasic": "10.0.0.0",
           "Microsoft.Win32.Primitives": "5.0.0.0",
@@ -291,7 +292,7 @@
           "System.Text.Encoding.CodePages.Reference": "5.0.0.0",
           "System.Text.Encoding": "5.0.0.0",
           "System.Text.Encoding.Extensions": "5.0.0.0",
-          "System.Text.Encodings.Web": "5.0.0.0",
+          "System.Text.Encodings.Web.Reference": "5.0.0.0",
           "System.Text.Json": "5.0.0.0",
           "System.Text.RegularExpressions": "5.0.0.0",
           "System.Threading.Channels": "5.0.0.0",
@@ -423,6 +424,32 @@
           "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Http/2.2.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.WebUtilities": "2.2.0",
+          "Microsoft.Extensions.ObjectPool": "2.2.0",
+          "Microsoft.Extensions.Options": "5.0.0",
+          "Microsoft.Net.Http.Headers": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.WebUtilities/2.2.0": {
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
       "Microsoft.Extensions.Configuration/5.0.0": {
@@ -468,6 +495,7 @@
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/5.0.0": {},
+      "Microsoft.Extensions.ObjectPool/2.2.0": {},
       "Microsoft.Extensions.Options/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
@@ -546,6 +574,12 @@
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
+      "Microsoft.Net.Http.Headers/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0",
+          "System.Buffers": "4.5.1"
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
@@ -595,51 +629,51 @@
           "lib/net5.0/Zstandard.Net.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore/5.6.3": {
+      "Swashbuckle.AspNetCore/6.2.2": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "5.6.3",
-          "Swashbuckle.AspNetCore.SwaggerGen": "5.6.3",
-          "Swashbuckle.AspNetCore.SwaggerUI": "5.6.3"
+          "Swashbuckle.AspNetCore.Swagger": "6.2.2",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.2.2",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.2"
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/5.6.3": {
+      "Swashbuckle.AspNetCore.Swagger/6.2.2": {
         "dependencies": {
           "Microsoft.OpenApi": "1.2.3"
         },
         "runtime": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+          "lib/net5.0/Swashbuckle.AspNetCore.Swagger.dll": {
+            "assemblyVersion": "6.2.2.0",
+            "fileVersion": "6.2.2.0"
           }
         },
         "compile": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+          "lib/net5.0/Swashbuckle.AspNetCore.Swagger.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/5.6.3": {
+      "Swashbuckle.AspNetCore.SwaggerGen/6.2.2": {
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "5.6.3"
+          "Swashbuckle.AspNetCore.Swagger": "6.2.2"
         },
         "runtime": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+          "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
+            "assemblyVersion": "6.2.2.0",
+            "fileVersion": "6.2.2.0"
           }
         },
         "compile": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+          "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/5.6.3": {
+      "Swashbuckle.AspNetCore.SwaggerUI/6.2.2": {
         "runtime": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+          "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
+            "assemblyVersion": "6.2.2.0",
+            "fileVersion": "6.2.2.0"
           }
         },
         "compile": {
-          "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+          "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
       "System.Buffers/4.5.1": {},
@@ -715,6 +749,7 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
+      "System.Text.Encodings.Web/4.5.0": {},
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.0"
@@ -726,6 +761,22 @@
         },
         "compile": {
           "Contracts.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Contracts": "1.0.0",
+          "Microsoft.AspNetCore.Http": "2.2.2",
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.Extensions.Http": "5.0.0",
+          "Swashbuckle.AspNetCore": "6.2.2"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        },
+        "compile": {
+          "Domain.dll": {}
         }
       },
       "Persistence/1.0.0": {
@@ -922,7 +973,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Abstractions/5.0.0.0": {
+      "Microsoft.AspNetCore.Http.Abstractions.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Abstractions.dll": {}
         },
@@ -940,7 +991,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http/5.0.0.0": {
+      "Microsoft.AspNetCore.Http.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.dll": {}
         },
@@ -952,7 +1003,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Features/5.0.0.0": {
+      "Microsoft.AspNetCore.Http.Features.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Features.dll": {}
         },
@@ -1198,7 +1249,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.WebUtilities/5.0.0.0": {
+      "Microsoft.AspNetCore.WebUtilities.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.WebUtilities.dll": {}
         },
@@ -1426,7 +1477,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.ObjectPool/5.0.0.0": {
+      "Microsoft.Extensions.ObjectPool.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.ObjectPool.dll": {}
         },
@@ -1468,7 +1519,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Net.Http.Headers/5.0.0.0": {
+      "Microsoft.Net.Http.Headers.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Net.Http.Headers.dll": {}
         },
@@ -2254,7 +2305,7 @@
         },
         "compileOnly": true
       },
-      "System.Text.Encodings.Web/5.0.0.0": {
+      "System.Text.Encodings.Web.Reference/5.0.0.0": {
         "compile": {
           "System.Text.Encodings.Web.dll": {}
         },
@@ -2491,6 +2542,34 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.10",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.5.0.10.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Http/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BAibpoItxI5puk7YJbIGj95arZueM8B8M5xT1fXBn3hb3L2G3ucrZcYXv1gXdaroLbntUs8qeV8iuBrpjQsrKw==",
+      "path": "microsoft.aspnetcore.http/2.2.2",
+      "hashPath": "microsoft.aspnetcore.http.2.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.WebUtilities/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9ErxAAKaDzxXASB/b5uLEkLgUWv1QbeVxyJYEHQwMaxXOeFFVkQxiq8RyfVcifLU7NR0QY0p3acqx4ZpYfhHDg==",
+      "path": "microsoft.aspnetcore.webutilities/2.2.0",
+      "hashPath": "microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -2554,6 +2633,13 @@
       "path": "microsoft.extensions.logging.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.ObjectPool/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gA8H7uQOnM5gb+L0uTNjViHYr+hRDqCdfugheGo/MxQnuHzmhhzCBTIPm19qL1z1Xe0NEMabfcOBGv9QghlZ8g==",
+      "path": "microsoft.extensions.objectpool/2.2.0",
+      "hashPath": "microsoft.extensions.objectpool.2.2.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Options/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2603,6 +2689,13 @@
       "path": "microsoft.identitymodel.tokens/6.7.1",
       "hashPath": "microsoft.identitymodel.tokens.6.7.1.nupkg.sha512"
     },
+    "Microsoft.Net.Http.Headers/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iZNkjYqlo8sIOI0bQfpsSoMTmB/kyvmV2h225ihyZT33aTp48ZpF6qYnXxzSXmHt8DpBAwBTX+1s1UFLbYfZKg==",
+      "path": "microsoft.net.http.headers/2.2.0",
+      "hashPath": "microsoft.net.http.headers.2.2.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
       "serviceable": true,
@@ -2631,33 +2724,33 @@
       "path": "mysql.data/8.0.26",
       "hashPath": "mysql.data.8.0.26.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore/5.6.3": {
+    "Swashbuckle.AspNetCore/6.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UkL9GU0mfaA+7RwYjEaBFvAzL8qNQhNqAeV5uaWUu/Z+fVgvK9FHkGCpTXBqSQeIHuZaIElzxnLDdIqGzuCnVg==",
-      "path": "swashbuckle.aspnetcore/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.5.6.3.nupkg.sha512"
+      "sha512": "sha512-Irw1OHu06kN3KOpLLQvy4pb/K7AjphnaNFWa9AZCEh0CNZ+3Eesqr/WfNzhX6w6om0Y4LEhVmbub83aGAZoguQ==",
+      "path": "swashbuckle.aspnetcore/6.2.2",
+      "hashPath": "swashbuckle.aspnetcore.6.2.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.Swagger/5.6.3": {
+    "Swashbuckle.AspNetCore.Swagger/6.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rn/MmLscjg6WSnTZabojx5DQYle2GjPanSPbCU3Kw8Hy72KyQR3uy8R1Aew5vpNALjfUFm2M/vwUtqdOlzw+GA==",
-      "path": "swashbuckle.aspnetcore.swagger/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512"
+      "sha512": "sha512-o8UV8yecriMfHTFx1elrltamuSv36g5KtofKtsb1VZ/xHuFADUSBvNzdTZzSy4igBf06+dmimh3oM/JeMPkL3g==",
+      "path": "swashbuckle.aspnetcore.swagger/6.2.2",
+      "hashPath": "swashbuckle.aspnetcore.swagger.6.2.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/5.6.3": {
+    "Swashbuckle.AspNetCore.SwaggerGen/6.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CkhVeod/iLd3ikVTDOwG5sym8BE5xbqGJ15iF3cC7ZPg2kEwDQL4a88xjkzsvC9oOB2ax6B0rK0EgRK+eOBX+w==",
-      "path": "swashbuckle.aspnetcore.swaggergen/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512"
+      "sha512": "sha512-GktBI7JHN4XFYwDM5ZTD5IbBYxVYZ7y7lFs6F3PgESwn2SPLyoLxJsWSi3ozDK3fB6aKcHgY90gHtezbbfW2iw==",
+      "path": "swashbuckle.aspnetcore.swaggergen/6.2.2",
+      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.2.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/5.6.3": {
+    "Swashbuckle.AspNetCore.SwaggerUI/6.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BPvcPxQRMsYZ3HnYmGKRWDwX4Wo29WHh14Q6B10BB8Yfbbcza+agOC2UrBFA1EuaZuOsFLbp6E2+mqVNF/Je8A==",
-      "path": "swashbuckle.aspnetcore.swaggerui/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+      "sha512": "sha512-wGrglgunEydAGuUvETBRytvFvhEhwFRuY0Qu1rK+axZfFNfRSFRdlqg+vhT4OLOCJpfReSX47jLCYu56c5RsFg==",
+      "path": "swashbuckle.aspnetcore.swaggerui/6.2.2",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.2.2.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
@@ -2743,6 +2836,13 @@
       "path": "system.text.encoding.codepages/4.4.0",
       "hashPath": "system.text.encoding.codepages.4.4.0.nupkg.sha512"
     },
+    "System.Text.Encodings.Web/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
+      "path": "system.text.encodings.web/4.5.0",
+      "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
+    },
     "System.Windows.Extensions/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -2751,6 +2851,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2910,7 +3015,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Abstractions/5.0.0.0": {
+    "Microsoft.AspNetCore.Http.Abstractions.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -2925,7 +3030,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http/5.0.0.0": {
+    "Microsoft.AspNetCore.Http.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -2935,7 +3040,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Features/5.0.0.0": {
+    "Microsoft.AspNetCore.Http.Features.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3140,7 +3245,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.WebUtilities/5.0.0.0": {
+    "Microsoft.AspNetCore.WebUtilities.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3330,7 +3435,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.ObjectPool/5.0.0.0": {
+    "Microsoft.Extensions.ObjectPool.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3365,7 +3470,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Net.Http.Headers/5.0.0.0": {
+    "Microsoft.Net.Http.Headers.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4020,7 +4125,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Text.Encodings.Web/5.0.0.0": {
+    "System.Text.Encodings.Web.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

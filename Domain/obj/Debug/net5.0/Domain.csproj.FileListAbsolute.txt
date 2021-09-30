@@ -1,0 +1,15 @@
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Domain.deps.json
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Domain.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\ref\Domain.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Domain.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Contracts.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Contracts.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.csproj.CopyComplete
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\ref\Domain.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.pdb

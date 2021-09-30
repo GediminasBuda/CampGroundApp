@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Persistence.Models.ReadModels;
-using RestAPI.FirebaseSettings.Models.RequestModels;
-using RestAPI.FirebaseSettings.Models.ResponseModels;
+using Domain.Clients.Firebase.Models.RequestModels;
 using Contracts.Models.ResponseModels;
 using Microsoft.AspNetCore.Http;
 using Persistence.Models.WriteModels;
+using Domain.Clients.Firebase.Models;
+using Domain.Clients.Firebase.Models.ResponseModels;
 
 namespace RestAPI.Controllers
 {

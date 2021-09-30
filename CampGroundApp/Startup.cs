@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using RestAPI.Options;
+using Domain.Clients.Firebase.Options;
 
 namespace RestAPI
 {
