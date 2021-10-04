@@ -45,7 +45,7 @@ namespace RestApi.Controllers
 
             if (campGroundToAddImage is null)
             {
-                return BadRequest($"The user with e-mail: {user.Email} does not have permission to add the image to this CampGround");
+                return Unauthorized($"User with e-mail: {user.Email} does not have the permission to add the image to this CampGround");
             }
 
             var image = new ImageWriteModel
@@ -85,7 +85,7 @@ namespace RestApi.Controllers
 
             if (campground is null)
             {
-                return BadRequest($"The user with e-mail: {user.Email} does not have permission to delete image of this CampGround");
+                return Unauthorized($"User with e-mail: {user.Email} does not have permission to delete image of this CampGround");
             }
 
             await _imageRepository.DeleteAsync(id);

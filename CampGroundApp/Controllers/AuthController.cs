@@ -11,60 +11,49 @@ using Microsoft.AspNetCore.Http;
 using Persistence.Models.WriteModels;
 using Domain.Clients.Firebase.Models;
 using Domain.Clients.Firebase.Models.ResponseModels;
+using Domain.Services;
+using Contracts.Models.RequestModels;
 
 namespace RestAPI.Controllers
 {
     [ApiController]
-    /*[Route("auth")]*/
+    [Route("auth")]
     public class AuthController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
         private readonly IFirebaseClient _firebaseClient;
+        private readonly IAuthService _authService;
 
-        public AuthController(IUserRepository userRepository, IFirebaseClient firebaseClient)
+        public AuthController(IUserRepository userRepository, IFirebaseClient firebaseClient, IAuthService authService)
         {
             _userRepository = userRepository;
             _firebaseClient = firebaseClient;
+            _authService = authService;
         }
 
         [HttpPost]
         [Route("signUp")]
-        public async Task<ActionResult<SignUpResponse>> SignUp(FirebaseSignUpRequest request)
+        public async Task<ActionResult<SignUpResponse>> SignUp(SignUpRequest request)
         {
             try
             {
-                var user = await _firebaseClient.SignUpAsync(request);
-                var userSql = new UserWriteModel
+                var response = await _authService.SignUpAsync(request);
 
-                {
-                    UserId = Guid.NewGuid(),
-                    Email = user.Email,
-                    FirebaseId = user.FirebaseId
-
-                };
-                await _userRepository.SaveAsync(userSql);
-
-
-                return Ok(new SignUpResponse
-                {
-                    UserId = userSql.UserId,
-                    IdToken = user.IdToken
-
-                });
+                return response;
             }
-            catch (BadHttpRequestException exception)
+            catch (BadHttpRequestException e)
             {
-                return BadRequest(exception.Message);
+                return BadRequest(e.Message);
             }
         }
 
         [HttpPost]
         [Route("signIn")]
-        public async Task<ActionResult<FirebaseSignInResponse>> SignIn(FirebaseSignUpRequest request)
+        public async Task<ActionResult<SignInResponse>> SignIn(SignInRequest request)
         {
             try
             {
-                return await _firebaseClient.SignInAsync(request);
+                return await _authService.SignInAsync(request);
             }
             catch (BadHttpRequestException exception)
             {

@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Domain.Clients.Firebase.Options;
+using Domain;
 
 namespace RestAPI
 {
@@ -37,7 +38,7 @@ namespace RestAPI
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 options.JsonSerializerOptions.IgnoreNullValues = true;
             });
-
+            services.AddDomain();
             services.AddPersistence(Configuration);
             services.AddFirebaseClient();
             services.AddControllers();

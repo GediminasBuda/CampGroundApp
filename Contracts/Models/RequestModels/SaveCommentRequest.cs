@@ -14,7 +14,7 @@ namespace Contracts.Models.RequestModels
         public Guid CampGroundId { get; set; }
 
         [JsonPropertyName("rating")]
-        [Range(1, 5, ErrorMessage = "The rating must be between 1 and 5.")]
+        [Range(1, 5, ErrorMessage = "Rating range is between 1 and 5.")]
         public int Rating { get; set; }
 
         [JsonPropertyName("text")]

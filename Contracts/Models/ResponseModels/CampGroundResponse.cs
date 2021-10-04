@@ -16,8 +16,8 @@ namespace Contracts.Models.ResponseModels
 
         public string Description { get; set; }
 
-        public List<ImageResponse> Images { get; set; }
+        public IEnumerable<ImageResponse> Images { get; set; }
 
-        public List<CommentResponse> Comments { get; set; }
+        public IEnumerable<CommentResponse> Comments { get; set; }
     }
 }

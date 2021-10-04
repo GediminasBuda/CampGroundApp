@@ -44,14 +44,14 @@ namespace RestAPI.Controllers
 
             if (campGround is null)
             {
-                return NotFound($"Campground with id: {request.CampGroundId} does not exist");
+                return NotFound($"CampGround with id: {request.CampGroundId} does not exist");
             }
 
             var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;//Very important!info comes from firebase.com. via API "https://localhost:5001;http://localhost:5000" connction; So we know which user is connected;
 
             var user = await _userRepository.GetByIdAsync(firebaseId);// we call user from our MySql Database;
 
-            var comment = new CommentWriteModel
+            var comment = new CommentWriteModel// we add values to the new comment model
             {
                 Id = Guid.NewGuid(),
                 CampGroundId = request.CampGroundId,
@@ -61,9 +61,9 @@ namespace RestAPI.Controllers
                 DateCreated = DateTime.Now
             };
 
-            await _commentRepository.SaveOrUpdateAsync(comment);// we save comment into MySql Database;
+            await _commentRepository.SaveOrUpdateAsync(comment);// we save new created comment into MySql Database;
 
-            return new SaveCommentResponse // we return response to index.html
+            return Ok(new SaveCommentResponse // we return response to index.html or any other Client;
             {
                 Id = comment.Id,
                 CampGroundId = comment.CampGroundId,
@@ -71,7 +71,7 @@ namespace RestAPI.Controllers
                 Text = comment.Text,
                 UserId = comment.UserId,
                 DateCreated = comment.DateCreated
-            };
+            });
         }
 
         [HttpPut]
@@ -99,7 +99,7 @@ namespace RestAPI.Controllers
 
             if (commentToUpdate is null)
             {
-                return BadRequest($"The user with e-mail: {user.Email} does not have permission to edit information of this comment.");
+                return Unauthorized($"User with e-mail: {user.Email} does not have permission to edit information of this comment.");
             }
             var comment = new CommentWriteModel
             {
@@ -140,7 +140,7 @@ namespace RestAPI.Controllers
 
             if (commentToDelete is null)
             {
-                return BadRequest($"The user with e-mail: {user.Email} does not have permission to delete this comment");
+                return Unauthorized($"User with e-mail: {user.Email} does not have the permission to delete this comment");
             }
 
             await _commentRepository.DeleteAsync(id);

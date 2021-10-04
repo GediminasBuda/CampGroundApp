@@ -13,5 +13,7 @@ namespace Persistence.Models.WriteModels
         public string Email { get; set; }
 
         public string FirebaseId { get; set; }
+
+        public DateTime DateCreated { get; set; }
     }
 }

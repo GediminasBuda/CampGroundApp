@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace RestAPI.Controllers
 {
     [ApiController]
-    [Route("campgrounds")]
+    [Route("campground")]
     public class CampGroundController : ControllerBase
     {
         private readonly ICampGroundRepository _campGroundRepository;
@@ -32,6 +32,7 @@ namespace RestAPI.Controllers
         public async Task<IEnumerable<CampGroundsResponse>> GetCampgrounds()
         {
             var campGrounds = await _campGroundRepository.GetAllAsync();
+           // var images = await _imageRepository.GetAsync();
 
             return campGrounds.Select(campGround => new CampGroundsResponse
             {
@@ -53,22 +54,17 @@ namespace RestAPI.Controllers
             {
                 return NotFound($"CampGround with id: {id} does not exist");
             }
-
             var commentsToResponse = await _commentRepository.GetByCampGroundIdAsync(id);
+            var imagesToResponse = await _imageRepository.GetByCampGroundIdAsync(id);
 
             var comments = commentsToResponse.Select(comment => new CommentResponse
             {
                 Id = comment.Id,
-                CampGroundId = comment.CampGroundId,
                 Rating = comment.Rating,
                 Text = comment.Text,
                 UserId = comment.UserId,
                 DateCreated = comment.DateCreated
             });
-
-            var commentsList = comments.ToList();
-
-            var imagesToResponse = await _imageRepository.GetByCampGroundIdAsync(id);
 
             var images = imagesToResponse.Select(image => new ImageResponse
             {
@@ -76,17 +72,15 @@ namespace RestAPI.Controllers
                 Url = image.Url
             });
 
-            var imagesList = images.ToList();
-
-            return new CampGroundResponse
+            return Ok(new CampGroundResponse
             {
                 Id = campGround.Id,
                 Name = campGround.Name,
                 Price = campGround.Price,
                 Description = campGround.Description,
-                Images = imagesList,
-                Comments = commentsList
-            };
+                Images = images,
+                Comments = comments
+            });
         }
 
         [HttpPost]

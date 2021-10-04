@@ -680,6 +680,7 @@
           "Microsoft.Extensions.Configuration": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.Extensions.Http": "5.0.0",
+          "Persistence": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.2"
         },
         "compile": {

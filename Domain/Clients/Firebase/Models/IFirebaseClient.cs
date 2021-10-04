@@ -10,8 +10,8 @@ namespace Domain.Clients.Firebase.Models
 {
     public interface IFirebaseClient
     {
-        Task<FirebaseSignUpResponse> SignUpAsync(FirebaseSignUpRequest model);
-        Task<FirebaseSignInResponse> SignInAsync(FirebaseSignUpRequest model);
+        Task<FirebaseSignUpResponse> SignUpAsync(string email, string password);
+        Task<FirebaseSignInResponse> SignInAsync(string email, string password);
         Task<PasswordResetResponse> PasswordResetAsync(PasswordResetRequest model);
 
         Task<VerifyEmailResponse> VerifyEmailAsync(VerifyEmailRequest model);

@@ -15,6 +15,6 @@ namespace Domain.Clients.Firebase.Models.RequestModels
         [JsonPropertyName("password")]
         public string Password { get; set; }
         [JsonPropertyName("returnSecureToken")]
-        public bool ReturnSecureToken { get; } = true;
+        public bool ReturnSecureToken => true;
     }
 }

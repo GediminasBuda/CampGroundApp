@@ -10,5 +10,8 @@ namespace Contracts.Models.ResponseModels
     {
         public Guid UserId { get; set; }
         public string IdToken { get; set; }
+
+        public string Email { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

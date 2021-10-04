@@ -169,6 +169,9 @@
             "projectReferences": {
               "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj": {
                 "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Contracts\\Contracts.csproj"
+              },
+              "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\CampGroundApp\\Persistence\\Persistence.csproj"
               }
             }
           }

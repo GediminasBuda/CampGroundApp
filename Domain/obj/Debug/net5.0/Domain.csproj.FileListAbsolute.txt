@@ -13,3 +13,5 @@ C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\D
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.dll
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\obj\Debug\net5.0\Domain.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Persistence.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\CampGroundApp\Domain\bin\Debug\net5.0\Persistence.pdb

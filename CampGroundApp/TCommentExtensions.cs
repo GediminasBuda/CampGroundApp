@@ -1,9 +1,6 @@
 ﻿using Contracts.Models.ResponseModels;
 using Persistence.Models.ReadModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace RestAPI
 {
@@ -14,7 +11,6 @@ namespace RestAPI
             return new CommentResponse
             {
                 Id = model.Id,
-                CampGroundId = model.CampGroundId,
                 Rating = model.Rating,
                 Text = model.Text,
                 UserId = model.UserId,

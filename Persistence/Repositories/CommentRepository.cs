@@ -20,6 +20,7 @@ namespace Persistence.Repositories
         public Task<IEnumerable<CommentReadModel>> GetAllAsync(Guid userId)
         {
             var sql = $"SELECT * FROM {TableName} WHERE UserId = @UserId";
+
             return _sqlClient.QueryAsync<CommentReadModel>(sql, new
             {
                 UserId = userId
@@ -28,6 +29,7 @@ namespace Persistence.Repositories
         public Task<IEnumerable<CommentReadModel>> GetByCampGroundIdAsync(Guid campGroundId)
         {
             var sql = $"SELECT * FROM {TableName} WHERE CampGroundId = @CampGroundId";
+
             return _sqlClient.QueryAsync<CommentReadModel>(sql, new
             {
                 CampGroundId = campGroundId
@@ -36,6 +38,7 @@ namespace Persistence.Repositories
         public Task<CommentReadModel> GetAsync(Guid id)
         {
             var sql = $"SELECT FROM {TableName} WHERE Id = @Id";
+
             return _sqlClient.QuerySingleOrDefaultAsync<CommentReadModel>(sql, new
             {
                 Id = id
@@ -44,6 +47,7 @@ namespace Persistence.Repositories
         public Task<CommentReadModel> GetAsync(Guid id, Guid userId)
         {
             var sql = $"SELECT FROM {TableName} WHERE Id = @Id AND UserId = @UserId";
+
             return _sqlClient.QuerySingleOrDefaultAsync<CommentReadModel>(sql, new
             {
                 Id = id,
@@ -70,6 +74,7 @@ namespace Persistence.Repositories
         public Task<int> DeleteAsync(Guid id)
         {
             var sql = $"DELETE FROM {TableName} WHERE Id = @Id";
+
             return _sqlClient.ExecuteAsync(sql, new
             {
                 Id = id
@@ -79,6 +84,7 @@ namespace Persistence.Repositories
         public Task<int> DeleteByCampGroundIdAsync(Guid campGroundId)
         {
             var sql = $"DELETE FROM {TableName} WHERE CampGroundId = @CampGroundId";
+
             return _sqlClient.ExecuteAsync(sql, new
             {
                 CampGroundId = campGroundId
