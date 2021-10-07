@@ -16,10 +16,10 @@ namespace Domain.Services
         private readonly IUserRepository _userRepository;
         private readonly IFirebaseClient _firebaseClient;
 
-        public AuthService(IUserRepository userRepository, IFirebaseClient firebaseClient)
+        public AuthService(IFirebaseClient firebaseClient, IUserRepository userRepository)
         {
-            _userRepository = userRepository;
             _firebaseClient = firebaseClient;
+            _userRepository = userRepository;
         }
         public async Task<SignUpResponse> SignUpAsync(SignUpRequest request)
         {
